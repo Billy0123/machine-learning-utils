@@ -119,7 +119,7 @@ mean_fpr = np.linspace(0, 1, 100)
 mean_tpr = np.zeros(mean_fpr.shape[0])
 for i, (train, test) in enumerate(cv):
     probas = pipe_lr.fit(X_train2[train], y_train[train]).predict_proba(X_train2[test])
-    fpr, tpr, thresholds = roc_curve(y_train[test], probas[:, 1],pos_label=1)
+    fpr, tpr, thresholds = roc_curve(y_train[test], probas[:, 1], pos_label=1)
     mean_tpr += interp1d(fpr, tpr, kind='linear')(mean_fpr)
     roc_auc = auc(fpr, tpr)
     plt.plot(fpr, tpr, label='ROC fold %d (area = %0.2f)' % (i+1, roc_auc))
