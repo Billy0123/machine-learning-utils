@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 
 
 # function for drawing residual plot
-def residualPlot(y_train, y_train_pred, y_test, y_test_pred, title='Figure'):
+def residual_plot(y_train, y_train_pred, y_test, y_test_pred, title='Figure'):
     plt.figure(num=title)
     plt.scatter(y_train_pred,  y_train_pred - y_train,
                 c='steelblue', marker='o', edgecolor='white',
@@ -21,7 +21,7 @@ def residualPlot(y_train, y_train_pred, y_test, y_test_pred, title='Figure'):
 
 
 # function for drawing points and linear plot from regression model
-def regressionPlot(X, y, models, title='Figure'):
+def regression_plot(X, y, models, title='Figure'):
     plt.figure(num=title)
     plt.scatter(X, y, c='steelblue', edgecolor='white', s=70)
     linePlotColors = ('black', 'red', 'green', 'blue', 'pink')

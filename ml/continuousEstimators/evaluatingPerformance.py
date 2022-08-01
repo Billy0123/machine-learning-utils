@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import r2_score
 from sklearn.metrics import mean_squared_error
 
-from ml.utils.regressionPlots import residualPlot
+from ml.utils.regressionPlots import residual_plot
 from ml.utils.indexPrinter import indexPrinter
 iP = indexPrinter()
 
@@ -32,7 +32,7 @@ lr = LinearRegression().fit(X_train, y_train)
 # generate points and plot residuals (chould be pure-chaotic)
 y_train_pred = lr.predict(X_train)
 y_test_pred = lr.predict(X_test)
-residualPlot(y_train, y_train_pred, y_test, y_test_pred, title='Residual plot - default multi-linear regression')
+residual_plot(y_train, y_train_pred, y_test, y_test_pred, title='Residual plot - default multi-linear regression')
 plt.hlines(y=0, xmin=-10, xmax=50, color='black', lw=2)
 plt.xlim([-10, 50])
 plt.tight_layout()

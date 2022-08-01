@@ -9,7 +9,7 @@ from sklearn.svm import SVR
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 
-from ml.utils.regressionPlots import regressionPlot,residualPlot
+from ml.utils.regressionPlots import regression_plot,residual_plot
 from ml.utils.indexPrinter import indexPrinter
 iP = indexPrinter()
 
@@ -32,7 +32,7 @@ tree.fit(X, y)
 
 # plot results
 sort_idx = X.flatten().argsort()
-regressionPlot(X[sort_idx], y[sort_idx], [tree], title='Decision Tree non-linear fit')
+regression_plot(X[sort_idx], y[sort_idx], [tree], title='Decision Tree non-linear fit')
 plt.xlabel('% lower status of the population [LSTAT]')
 plt.ylabel('Price in $1000s [MEDV]')
 plt.show()
@@ -62,7 +62,7 @@ iP.print('(random forest) R^2 train: %.3f, test: %.3f' % (
         r2_score(y_test, y_test_pred))) # (3) R^2 (see evaluatingPerformance notebook)
 
 # plot residuals
-residualPlot(y_train,y_train_pred,y_test,y_test_pred,title='Residual plot - random forest regresion')
+residual_plot(y_train, y_train_pred, y_test, y_test_pred, title='Residual plot - random forest regresion')
 plt.hlines(y=0, xmin=-10, xmax=50, lw=2, color='black')
 plt.xlim([-10, 50])
 plt.tight_layout()
@@ -88,7 +88,7 @@ iP.print('(SVM) R^2 train: %.3f, test: %.3f' % (
         r2_score(y_test, y_test_pred))) # (5) R^2 (see evaluatingPerformance notebook)
 
 # plot residuals
-residualPlot(y_train,y_train_pred,y_test,y_test_pred,title='Residual plot - SVM')
+residual_plot(y_train, y_train_pred, y_test, y_test_pred, title='Residual plot - SVM')
 plt.hlines(y=0, xmin=-10, xmax=50, lw=2, color='black')
 plt.xlim([-10, 50])
 plt.tight_layout()

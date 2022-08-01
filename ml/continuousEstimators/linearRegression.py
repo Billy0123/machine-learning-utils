@@ -7,7 +7,7 @@ from sklearn.linear_model import Lasso
 from sklearn.linear_model import Ridge
 from sklearn.linear_model import ElasticNet
 
-from ml.utils.regressionPlots import regressionPlot
+from ml.utils.regressionPlots import regression_plot
 from ml.utils.indexPrinter import indexPrinter
 iP = indexPrinter()
 
@@ -34,7 +34,7 @@ iP.print('(lin-reg) Intercept: %.3f' % lr.intercept_) # (3) lin-reg intercept
 
 
 # plot linear regression with scatter points
-regressionPlot(X, y, [lr], title='MEDV = f(RM)')
+regression_plot(X, y, [lr], title='MEDV = f(RM)')
 plt.xlabel('Average number of rooms [RM]')
 plt.ylabel('Price in $1000s [MEDV]')
 plt.show()
@@ -90,7 +90,7 @@ lasso = Lasso(alpha=1.0).fit(X, y) # LASSO regression
 elanet = ElasticNet(alpha=1.0, l1_ratio=0.5).fit(X, y) # Elastic Net regression
 
 # plot all the regression models with scatter points
-regressionPlot(X, y, [lr,ransac,ridge,lasso,elanet], title='various regression models MEDV = f(RM)')
+regression_plot(X, y, [lr, ransac, ridge, lasso, elanet], title='various regression models MEDV = f(RM)')
 plt.xlabel('Average number of rooms [RM]')
 plt.ylabel('Price in $1000s [MEDV]')
 plt.show()
